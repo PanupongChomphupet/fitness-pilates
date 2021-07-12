@@ -4,8 +4,10 @@ import axios from 'axios';
 import swal from 'sweetalert'
 import { useHistory, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
+import { ReactVideo } from "reactjs-media";
 import { Progress } from 'react-sweet-progress';
 import "../../node_modules/react-sweet-progress/lib/style.css";
+
 
 function Updatelevel() {
     const id = useParams().id;
@@ -122,7 +124,7 @@ function Updatelevel() {
         })
 
     }
-    
+
     return (
         <div className={styles.bg}>
             <div className={styles.hearder}>
@@ -149,9 +151,10 @@ function Updatelevel() {
                     {listvideo.map((item, index) =>
                         <div key={index}>
                             <div className={styles.video}>
-                                <video width="338" controls>
-                                    <source src={`https://storage.googleapis.com/video-course/${item}`} type="video/mp4" />
-                                </video>
+                                <ReactVideo
+                                    src = {`https://storage.googleapis.com/video-course/${item}`}
+                                // other props
+                                />
                                 <button onClick={e => delectvideo(item)} className={styles.btn}>ลบ</button>
                             </div>
 
