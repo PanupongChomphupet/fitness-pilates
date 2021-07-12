@@ -4,9 +4,11 @@ import axios from 'axios';
 import swal from 'sweetalert'
 import { useHistory, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
-import { ReactVideo } from "reactjs-media";
+/* import { ReactVideo } from "reactjs-media"; */
 import { Progress } from 'react-sweet-progress';
 import "../../node_modules/react-sweet-progress/lib/style.css";
+import QierPlayer from 'qier-player';
+import videoOrigin from './videoOrigin.mp4';
 
 
 function Updatelevel() {
@@ -151,10 +153,18 @@ function Updatelevel() {
                     {listvideo.map((item, index) =>
                         <div key={index}>
                             <div className={styles.video}>
-                                <ReactVideo
+                                <QierPlayer
+                                    width={740}
+                                    height={420}
+                                    language="zh"
+                                    showVideoQuality={true}
+                                    themeColor="#abc123"
+                                    srcOrigin = {`https://storage.googleapis.com/video-course/${item}`}
+                                />
+                                {/* <ReactVideo
                                     src = {`https://storage.googleapis.com/video-course/${item}`}
                                 // other props
-                                />
+                                /> */}
                                 <button onClick={e => delectvideo(item)} className={styles.btn}>ลบ</button>
                             </div>
 
