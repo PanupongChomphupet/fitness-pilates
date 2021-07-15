@@ -8,7 +8,6 @@ import React, { useEffect, useState } from 'react'
 import { Progress } from 'react-sweet-progress';
 import "../../node_modules/react-sweet-progress/lib/style.css";
 import QierPlayer from 'qier-player';
-import videoOrigin from './videoOrigin.mp4';
 
 
 function Updatelevel() {

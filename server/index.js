@@ -927,7 +927,6 @@ mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) =
             })
         })
     })
-
     app.post('/deletebill', (req, res) => {
         const { id, idcouse } = req.body
         dbcon.collection('user').update({ _id: ObjectId(id) }, { '$pull': { Bill: { Id: idcouse } } }, (err, result) => {
