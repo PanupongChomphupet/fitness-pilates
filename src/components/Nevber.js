@@ -13,7 +13,7 @@ function Navber(props) {
     const [bill, setbill] = useState([])
     const [noti, setnoti] = useState([])	
    
-    function nitis() {
+   /* function nitis() {
         axios({
             method: "get",
             url: "http://104.155.150.122/sumbill",
@@ -22,11 +22,11 @@ function Navber(props) {
             setnoti(res.data.sumbill)
             nitis()
         })
-    }
+    }*/
 
-    useEffect(() => {
+    /*useEffect(() => {
         nitis()
-    }, []) 
+    }, [])*/ 
 
     function myLinks() {
         var x = document.getElementById("myLinks")
@@ -119,7 +119,7 @@ function Navber(props) {
                         </div>
                         <div className={styles.icon}>
                             <a className={styles.iconmenu} onClick={myLinks}><FiMenu /></a>
-                            {(noti.length > 0) ? <div className={styles.notication}>{noti.length}</div> : null}
+		{/* {(noti.length > 0) ? <div className={styles.notication}>{noti.length}</div> : null}*/}
                         </div>
                     </div>
                 </div>

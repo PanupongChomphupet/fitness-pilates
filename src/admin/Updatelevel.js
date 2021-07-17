@@ -153,9 +153,9 @@ function Updatelevel() {
                         <div key={index}>
                             <div className={styles.video}>
                                 <QierPlayer
-                                    width={740}
-                                    height={420}
-                                    language="zh"
+                                    width={"100%"}
+                                    height={250}
+                                    language="en"
                                     showVideoQuality={true}
                                     themeColor="#abc123"
                                     srcOrigin = {`https://storage.googleapis.com/video-course/${item}`}
