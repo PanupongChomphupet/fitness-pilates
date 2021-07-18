@@ -39,7 +39,7 @@ function Detail() {
     useEffect(() => {
         axios({
             method: "GET",
-            url: `http://localhost:5000/detail/${id}`
+            url: `http://104.155.150.122/detail/${id}`
         }).then(res => {
             setcourse(res.data.cours);
             setLevel(res.data.level);
@@ -49,7 +49,7 @@ function Detail() {
     useEffect(() => {
         axios({
             method: "post",
-            url: 'http://localhost:5000/billlevel',
+            url: 'http://104.155.150.122/billlevel',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {

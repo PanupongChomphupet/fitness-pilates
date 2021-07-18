@@ -12,7 +12,7 @@ function Preview() {
     useEffect(() => {
         axios({
             method: "POST",
-            url: "http://localhost:5000/preview",
+            url: "http://104.155.150.122/preview",
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({
                 name,

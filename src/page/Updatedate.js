@@ -12,7 +12,7 @@ function Updatedate() {
     const token = localStorage.getItem("token");
     axios({
       method: "post",
-      url: "http://localhost:5000/dataprofile",
+      url: "http://104.155.150.122/dataprofile",
       headers: { "Content-Type": "application/json" },
       data: JSON.stringify({ token })
     }).then(res => {
@@ -48,7 +48,7 @@ function Updatedate() {
 
     axios({
       method: "POST",
-      url: "http://localhost:5000/updateprofile",
+      url: "http://104.155.150.122/updateprofile",
       headers: { "Content-Type": "application/json" },
       data: formData
     }).then(res => {

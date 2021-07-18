@@ -16,7 +16,7 @@ function Navber(props) {
     function nitis() {
         axios({
             method: "get",
-            url: "http://localhost:5000/sumbill",
+            url: "http://104.155.150.122/sumbill",
             headers: { "Content-Type": "application/json" },
         }).then(res => {
             if (res.data.sumbill.length !== noti.length) {

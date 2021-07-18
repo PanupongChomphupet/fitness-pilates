@@ -24,7 +24,7 @@ function Updatelevel() {
         const token = localStorage.getItem("token");
         axios({
             method: 'POST',
-            url: 'http://localhost:5000/check-status',
+            url: 'http://104.155.150.122/check-status',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {
@@ -37,7 +37,7 @@ function Updatelevel() {
     useEffect(() => {
         axios({
             method: "post",
-            url: 'http://localhost:5000/dataleve',
+            url: 'http://104.155.150.122/dataleve',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ idd, levell })
         }).then(res => {
@@ -65,7 +65,7 @@ function Updatelevel() {
                 if (i == video.length - 1) {
                     axios({
                         method: "post",
-                        url: `http://localhost:5000/updatelevel/${id}/${idvel}`,
+                        url: `http://104.155.150.122/updatelevel/${id}/${idvel}`,
                         headers: { "Content-Type": "application/json" },
                         data: formData,
                         onUploadProgress: (e) => {
@@ -87,7 +87,7 @@ function Updatelevel() {
         } else {
             axios({
                 method: "post",
-                url: `http://localhost:5000/updatelevel/${id}/${idvel}`,
+                url: `http://104.155.150.122/updatelevel/${id}/${idvel}`,
                 headers: { "Content-Type": "application/json" },
                 data: formData,
                 onUploadProgress: (e) => {

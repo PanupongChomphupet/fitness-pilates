@@ -58,7 +58,7 @@ function App() {
         history.push("/login");
       } else {
         axios({
-          url: "http://localhost:5000/check-login",
+          url: "http://104.155.150.122/check-login",
           method: "POST",
           headers: { "Content-Type": "application/json" },
           data: JSON.stringify({ token })

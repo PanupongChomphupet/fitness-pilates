@@ -12,7 +12,7 @@ function Bank() {
     useEffect(() => {
         axios({
             method: "GET",
-            url: "http://localhost:5000/bank",
+            url: "http://104.155.150.122/bank",
             headers: { "Content-Type": "application/json" }
         }).then(res => {
             setform({
@@ -29,7 +29,7 @@ function Bank() {
         const token = localStorage.getItem("token");
         axios({
             method: 'POST',
-            url: 'http://localhost:5000/check-status',
+            url: 'http://104.155.150.122/check-status',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {
@@ -45,7 +45,7 @@ function Bank() {
     function save() {
         axios({
             method: "POST",
-            url: "http://localhost:5000/updatebank",
+            url: "http://104.155.150.122/updatebank",
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({
                 name_account: form.name_account,

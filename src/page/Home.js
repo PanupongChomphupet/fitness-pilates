@@ -15,7 +15,7 @@ function Home() {
     useEffect(() => {
         axios({
             method: "GET",
-            url: "http://localhost:5000/course",
+            url: "http://104.155.150.122/course",
             headers: { "Content-Type": "application/json" }
         }).then(res => {
             setitemcourse(res.data.cos)

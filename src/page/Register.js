@@ -59,7 +59,7 @@ function Register() {
         if (strength) {
             axios({
                 method: "POST",
-                url: "http://localhost:5000/register",
+                url: "http://104.155.150.122/register",
                 headers: { "Content-Type": "application/json" },
                 data: formData
             }).then(res => {
@@ -76,7 +76,7 @@ function Register() {
                 } else {
                     axios({
                         method: "POST",
-                        url: "http://localhost:5000/login",
+                        url: "http://104.155.150.122/login",
                         headers: { "Content-Type": "application/json" },
                         data: JSON.stringify({
                             tel: res.data.tel,
