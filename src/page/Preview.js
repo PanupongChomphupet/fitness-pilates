@@ -2,7 +2,7 @@ import styles from '../styles/Preview.module.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import ReactPlayer from 'react-player'
+import QierPlayer from 'qier-player';
 
 function Preview() {
     const name = useParams().name;
@@ -12,7 +12,7 @@ function Preview() {
     useEffect(() => {
         axios({
             method: "POST",
-            url: "http://104.155.150.122/preview",
+            url: "http://localhost:5000/preview",
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({
                 name,
@@ -26,18 +26,19 @@ function Preview() {
         <div className={styles.bg}>
             <h2 className={styles.title}>ตัวอย่างวิดิโอ</h2>
             {preview ? preview.map((item, index) =>
-                    <div className = {styles.video} key={index}>
-                        <ReactPlayer
-                            url={[{ src: `https://storage.googleapis.com/video-course/${preview[index]}`, type: 'video/mp4' }]}
-                            controls  // gives the front end video controls 
-                            width='95%'
-                            height='90%'
-                            config={{ file: { attributes: { controlsList: 'nodownload' } } }}
-                            onContextMenu={e => e.preventDefault()}
-                        />
-                    </div>
-                ) : null
-                }
+                <div className={styles.video} key={index}>
+                    <QierPlayer
+                        width={"100%"}
+                        height={230}
+                        language="en"
+                        showVideoQuality={false}
+                        themeColor="#abc123"
+                        srcOrigin={`https://storage.googleapis.com/video-course/${preview[index]}`}
+
+                    />
+                </div>
+            ) : null
+            }
         </div>
     )
 }

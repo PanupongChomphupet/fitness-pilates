@@ -13,7 +13,7 @@ function Historylist() {
         const token = localStorage.getItem("token");
         axios({
             method: "post",
-            url: "http://104.155.150.122/history",
+            url: "http://localhost:5000/history",
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({token})
         }).then(res => {

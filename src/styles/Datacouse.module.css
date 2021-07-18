@@ -20,7 +20,7 @@
 }
 .bg .content .namecouse, .detail{
     font-size: 14px;
-    word-wrap: break-word;
+    word-break: keep-all;
 }
 .bg .content .level .levellist .leveldiv {
     margin: 3% 0;

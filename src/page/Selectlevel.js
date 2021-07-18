@@ -11,7 +11,7 @@ function Selectlevel() {
     const history = useHistory()
     useEffect(() => {
         axios({
-            url: `http://104.155.150.122/billlevel/${id}`,
+            url: `http://localhost:5000/billlevel/${id}`,
             method: "POST",
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({

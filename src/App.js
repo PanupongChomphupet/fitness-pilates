@@ -9,7 +9,6 @@ import Pay from './page/Payment';
 import Dasborad from './page/Dasborad';
 import Selectlevel from './page/Selectlevel';
 import Videoplay from './page/Videoplay';
-import Shop from './page/Shop'
 import Show from './page/Show'
 import Historylist from './page/Historylist'
 import ForgotPassword from './page/ForgotPassword'
@@ -59,7 +58,7 @@ function App() {
         history.push("/login");
       } else {
         axios({
-          url: "http://104.155.150.122/check-login",
+          url: "http://localhost:5000/check-login",
           method: "POST",
           headers: { "Content-Type": "application/json" },
           data: JSON.stringify({ token })
@@ -77,10 +76,10 @@ function App() {
     <div>
       <Navber rights={right} />
       <Switch>
-        <Route path="/home" exact>
+        <Route path="/home">
           <Home />
         </Route>
-        <Route path="/login">
+        <Route path="/login" exact>
           <Login />
         </Route>
         <Route path="/register">
@@ -109,9 +108,6 @@ function App() {
         </Route>
         <Route path="/video/:id/:level">
           <Videoplay />
-        </Route>
-        <Route path="/shop">
-          <Shop />
         </Route>
         <Route path="/show">
           <Show />

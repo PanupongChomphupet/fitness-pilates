@@ -1,10 +1,8 @@
 import styles from '../styles/Updatelevel.module.css'
-/* import Select from 'react-select'; */
 import axios from 'axios';
 import swal from 'sweetalert'
 import { useHistory, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
-/* import { ReactVideo } from "reactjs-media"; */
 import { Progress } from 'react-sweet-progress';
 import "../../node_modules/react-sweet-progress/lib/style.css";
 import QierPlayer from 'qier-player';
@@ -26,7 +24,7 @@ function Updatelevel() {
         const token = localStorage.getItem("token");
         axios({
             method: 'POST',
-            url: 'http://104.155.150.122/check-status',
+            url: 'http://localhost:5000/check-status',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {
@@ -39,7 +37,7 @@ function Updatelevel() {
     useEffect(() => {
         axios({
             method: "post",
-            url: 'http://104.155.150.122/dataleve',
+            url: 'http://localhost:5000/dataleve',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ idd, levell })
         }).then(res => {
@@ -67,7 +65,7 @@ function Updatelevel() {
                 if (i == video.length - 1) {
                     axios({
                         method: "post",
-                        url: `http://104.155.150.122/updatelevel/${id}/${idvel}`,
+                        url: `http://localhost:5000/updatelevel/${id}/${idvel}`,
                         headers: { "Content-Type": "application/json" },
                         data: formData,
                         onUploadProgress: (e) => {
@@ -89,7 +87,7 @@ function Updatelevel() {
         } else {
             axios({
                 method: "post",
-                url: `http://104.155.150.122/updatelevel/${id}/${idvel}`,
+                url: `http://localhost:5000/updatelevel/${id}/${idvel}`,
                 headers: { "Content-Type": "application/json" },
                 data: formData,
                 onUploadProgress: (e) => {
@@ -156,14 +154,10 @@ function Updatelevel() {
                                     width={"100%"}
                                     height={250}
                                     language="en"
-                                    showVideoQuality={true}
+                                    showVideoQuality={false}
                                     themeColor="#abc123"
                                     srcOrigin = {`https://storage.googleapis.com/video-course/${item}`}
                                 />
-                                {/* <ReactVideo
-                                    src = {`https://storage.googleapis.com/video-course/${item}`}
-                                // other props
-                                /> */}
                                 <button onClick={e => delectvideo(item)} className={styles.btn}>ลบ</button>
                             </div>
 

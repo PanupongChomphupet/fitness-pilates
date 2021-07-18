@@ -39,7 +39,7 @@ function Detail() {
     useEffect(() => {
         axios({
             method: "GET",
-            url: `http://104.155.150.122/detail/${id}`
+            url: `http://localhost:5000/detail/${id}`
         }).then(res => {
             setcourse(res.data.cours);
             setLevel(res.data.level);
@@ -49,7 +49,7 @@ function Detail() {
     useEffect(() => {
         axios({
             method: "post",
-            url: 'http://104.155.150.122/billlevel',
+            url: 'http://localhost:5000/billlevel',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {
@@ -76,17 +76,16 @@ function Detail() {
         if (course.level && checklevel && thiscourse.length == 0) {
             if (course.level.length > 0 && checklevel.length > 0) {
                 setthiscourse(checklevel.filter(e => e.namecouse == course.name && e.approve))
-                
+
             }
         }
     }, [course, checklevel, thiscourse])
 
     function buy(level, name, price) {
-	setname(course.name)
-   	setidcouse(id)
-	let approve = false;
+        setname(course.name)
+        setidcouse(id)
+        let approve = false;
         let data = document.getElementById(level).innerHTML;
-
         if (data === "เพิ่ม") {
             document.getElementById(level).innerHTML = "ลบ";
             setvel([...vel, {
@@ -113,7 +112,7 @@ function Detail() {
                                     </div>
                                     <div className={styles.btndata}>
                                         <p className={styles.price}>{item.price}&nbsp;บาท</p>
-                                        <button onClick={() => { buy(item.level, item.name, item.price) }} className={styles.btn_add}><label id={item.level}></label>เพิ่ม</button>
+                                        <button onClick={() => { buy(item.level, item.name, item.price) }} className={styles.btn_add}><label id={item.level}>เพิ่ม</label></button>
                                         <button onClick={() => (history.push(`/Preview/${course.name}/${item.level}`))}>ดูตัวอย่างวิดิโอ</button><br />
 
                                     </div>
@@ -135,8 +134,8 @@ function Detail() {
                             )
                         }) : null
                     }
-                      
-                                
+
+
                 </div>
                 <div className={styles.detail}>
                     <h4 className={styles.titles}>รายละเอียด</h4>

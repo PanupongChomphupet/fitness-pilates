@@ -17,7 +17,7 @@ function Datauser() {
         const token = localStorage.getItem("token");
         axios({
             method: 'POST',
-            url: 'http://104.155.150.122/check-status',
+            url: 'http://localhost:5000/check-status',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {
@@ -30,7 +30,7 @@ function Datauser() {
     useEffect(() => {
         axios({
             method: "POST",
-            url: `http://104.155.150.122/datauser/${id}`
+            url: `http://localhost:5000/datauser/${id}`
         }).then(res => {
             setuser(res.data.datae)
         })
@@ -39,7 +39,7 @@ function Datauser() {
     useEffect(() => {
         axios({
             method: "POST",
-            url: `http://104.155.150.122/databill/${id}/${idcouse}`,
+            url: `http://localhost:5000/databill/${id}/${idcouse}`,
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({})
         }).then(res => {
@@ -66,7 +66,7 @@ function Datauser() {
             if (re) {
                 axios({
                     method: "POST",
-                    url: 'http://104.155.150.122/approve',
+                    url: 'http://localhost:5000/approve',
                     headers: { "Content-Type": "application/json" },
                     data: JSON.stringify({
                         id,
@@ -98,7 +98,7 @@ function Datauser() {
             if (re) {
                 axios({
                     method: "POST",
-                    url: 'http://104.155.150.122/deletebill',
+                    url: 'http://localhost:5000/deletebill',
                     headers: { "Content-Type": "application/json" },
                     data: JSON.stringify({
                         id,

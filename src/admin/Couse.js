@@ -10,7 +10,7 @@ function Couse() {
         const token = localStorage.getItem("token");
         axios({
             method: 'POST',
-            url: 'http://104.155.150.122/check-status',
+            url: 'http://localhost:5000/check-status',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {
@@ -22,7 +22,7 @@ function Couse() {
     useEffect(() => {
         axios({
             method: "POST",
-            url: `http://104.155.150.122/databill/${id}`,
+            url: `http://localhost:5000/databill/${id}`,
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({})
         }).then(res => {

@@ -13,7 +13,7 @@ function Listuserdata() {
         const token = localStorage.getItem("token");
         axios({
             method: 'POST',
-            url: 'http://104.155.150.122/check-status',
+            url: 'http://localhost:5000/check-status',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {
@@ -26,7 +26,7 @@ function Listuserdata() {
     function userdata() {
         axios({
             method: "GET",
-            url: "http://104.155.150.122/userdata",
+            url: "http://localhost:5000/userdata",
             headers: { "Content-Type": "application/json" }
         }).then(res => {
             setuser(res.data.user)

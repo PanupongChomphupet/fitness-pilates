@@ -21,7 +21,7 @@ function ForgotPassword() {
             if (tel.length === 10 && tel.match(/[0-9]+/)) {
                 axios({
                     method: "POST",
-                    url: "http://104.155.150.122/forgot",
+                    url: "http://localhost:5000/forgot",
                     headers: { "Content-Type": "application/json" },
                     data: JSON.stringify({
                         tel
@@ -61,7 +61,7 @@ function ForgotPassword() {
         if (tel) {
             axios({
                 method: "POST",
-                url: "http://104.155.150.122/sendpassword",
+                url: "http://localhost:5000/sendpassword",
                 headers: { "Content-Type": "application/json" },
                 data: JSON.stringify({
                     tel,

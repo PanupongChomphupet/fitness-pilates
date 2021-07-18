@@ -96,11 +96,11 @@
     margin-top: 5%;
 }
 
-.details {
+.content .detail .details {
     margin: 4% 2%;
     font-size: 1234;
     line-height: 30px;
-    word-wrap:break-word;
+    word-break: keep-all;
 }
 
 .btn p {

@@ -3,6 +3,8 @@ import ReactPlayer from 'react-player'
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
+import QierPlayer from 'qier-player';
+
 function Videoplay() {
     const id = useParams().id;
     const level = useParams().level;
@@ -11,7 +13,7 @@ function Videoplay() {
     useEffect(() => {
         axios({
             method: 'POST',
-            url: 'http://104.155.150.122/video',
+            url: 'http://localhost:5000/video',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({
                 id,
@@ -28,13 +30,13 @@ function Videoplay() {
                 <h2>เลเวล: {vel.level}. {vel.name}</h2>
                 {vel.video ? vel.video.map((item, index) =>
                     <div key={index}>
-                        <ReactPlayer
-                            url={[{ src: `https://storage.googleapis.com/video-course/${vel.video[index]}`, type: 'video/mp4' }]}
-                            controls  // gives the front end video controls 
-                            width='100%'
-                            height='100%'
-                            config={{ file: { attributes: { controlsList: 'nodownload' } } }}
-                            onContextMenu={e => e.preventDefault()}
+                        <QierPlayer
+                            width={"100%"}
+                            height={230}
+                            language="en"
+                            showVideoQuality={false}
+                            themeColor="#abc123"
+                            srcOrigin={`https://storage.googleapis.com/video-course/${vel.video[index]}`}
                         />
                     </div>
                 ) : null}

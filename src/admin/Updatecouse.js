@@ -14,7 +14,7 @@ function Updatecouse() {
         const token = localStorage.getItem("token");
         axios({
             method: 'POST',
-            url: 'http://104.155.150.122/check-status',
+            url: 'http://localhost:5000/check-status',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {
@@ -27,7 +27,7 @@ function Updatecouse() {
     useEffect(() => {
         axios({
             method: "post",
-            url: "http://104.155.150.122/udatacouse",
+            url: "http://localhost:5000/udatacouse",
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ id })
         }).then(res => {
@@ -53,7 +53,7 @@ function Updatecouse() {
         
         axios ({
             method: "post",
-            url: "http://104.155.150.122/updatecouse",
+            url: "http://localhost:5000/updatecouse",
             headers: { "Content-Type": "application/json" },
             data: formData
         }).then(res => {

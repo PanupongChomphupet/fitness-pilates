@@ -21,7 +21,7 @@ function Addvideo() {
                 if (i == video.length - 1) {
                     axios({
                         method: 'POST',
-                        url: 'http://104.155.150.122/addvideo',
+                        url: 'http://localhost:5000/addvideo',
                         headers: { "Content-Type": "multipart/form-data" },
                         data: formdata,
                         onUploadProgress: (e) => {
@@ -43,7 +43,7 @@ function Addvideo() {
         } else {
             axios({
                 method: 'POST',
-                url: 'http://104.155.150.122/addvideo',
+                url: 'http://localhost:5000/addvideo',
                 headers: { "Content-Type": "multipary/form-data" },
                 data: formdata,
             }).then (res => {

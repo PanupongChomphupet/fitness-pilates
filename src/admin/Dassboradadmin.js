@@ -12,7 +12,7 @@ function Dassborad() {
     function loadpage() {
         axios({
             method: "GET",
-            url: "http://104.155.150.122/course",
+            url: "http://localhost:5000/course",
             headers: { "Content-Type": "application/json" }
         }).then(res => {
             setitemcouse(res.data.cos)
@@ -23,7 +23,7 @@ function Dassborad() {
         const token = localStorage.getItem("token");
         axios({
             method: 'post',
-            url: 'http://104.155.150.122/check-status',
+            url: 'http://localhost:5000/check-status',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {
@@ -50,7 +50,7 @@ function Dassborad() {
             if (result) {
                 axios({
                     method: "POST",
-                    url: "http://104.155.150.122/deletecouse",
+                    url: "http://localhost:5000/deletecouse",
                     headers: { "Content-Type": "application/json" },
                     data: JSON.stringify({ id })
                 }).then(res => {

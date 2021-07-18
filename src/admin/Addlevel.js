@@ -29,7 +29,7 @@ function Addlevel() {
         const token = localStorage.getItem("token");
         axios({
             method: 'POST',
-            url: 'http://104.155.150.122/check-status',
+            url: 'http://localhost:5000/check-status',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {
@@ -42,7 +42,7 @@ function Addlevel() {
     useEffect(() => {
         axios({
             method: "GET",
-            url: "http://104.155.150.122/listcouse",
+            url: "http://localhost:5000/listcouse",
             headers: { "Content-Type": "application/json" }
         }).then(res => {
             let arr = []
@@ -60,7 +60,7 @@ function Addlevel() {
         setid(id)
         axios({
             method: "post",
-            url: "http://104.155.150.122/cousenoe",
+            url: "http://localhost:5000/cousenoe",
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ id })
         }).then(res => {
@@ -95,7 +95,7 @@ function Addlevel() {
                 if (i == video.length - 1) {
                     axios({
                         method: "POST",
-                        url: "http://104.155.150.122/addlevel",
+                        url: "http://localhost:5000/addlevel",
                         headers:{ "Content-Type": "multipart/form-data" },
                         data: formdata,
                         onUploadProgress: (e) => {
@@ -129,7 +129,7 @@ function Addlevel() {
         }else {
             axios({
                 method: "POST",
-                url: "http://104.155.150.122/addlevel",
+                url: "http://localhost:5000/addlevel",
                 headers: { "Content-Type": "multipart/form-data" },
                 data: formdata,
             }).then(res => {

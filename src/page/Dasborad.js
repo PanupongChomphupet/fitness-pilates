@@ -10,14 +10,14 @@ function Dasborad() {
     const history = useHistory()
     useEffect(() => {
         axios({
-            url: "http://104.155.150.122/dasborad",
+            url: "http://localhost:5000/dasborad",
             method: "post",
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {
             let bill  = res.data.couse.filter(e => e.approve)
             axios({
-                url: "http://104.155.150.122/cous",
+                url: "http://localhost:5000/cous",
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 data: JSON.stringify({

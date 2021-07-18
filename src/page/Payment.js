@@ -50,7 +50,7 @@ function Pay() {
         }
         axios({
             method: 'GET',
-            url: 'http://104.155.150.122/bank',
+            url: 'http://localhost:5000/bank',
         }).then(res => {
             setbank(res.data.bank)
         })
@@ -61,7 +61,7 @@ function Pay() {
         if ((vel.length > 0)) {
             axios({
                 method: "POST",
-                url: "http://104.155.150.122/bill-ckeck",
+                url: "http://localhost:5000/bill-ckeck",
                 headers: { "Content-Type": "application/json" },
                 data: JSON.stringify({
                     idcouse: idcouseone,

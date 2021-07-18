@@ -11,22 +11,23 @@ function Navber(props) {
     const token = localStorage.getItem("token");
     const history = useHistory()
     const [bill, setbill] = useState([])
-    const [noti, setnoti] = useState([])	
-   
-   /* function nitis() {
+    const [noti, setnoti] = useState([])
+
+    function nitis() {
         axios({
             method: "get",
-            url: "http://104.155.150.122/sumbill",
+            url: "http://localhost:5000/sumbill",
             headers: { "Content-Type": "application/json" },
         }).then(res => {
-            setnoti(res.data.sumbill)
-            nitis()
+            if (res.data.sumbill.length !== noti.length) {
+                setnoti(res.data.sumbill)
+            }
         })
-    }*/
+    }
 
-    /*useEffect(() => {
+    useEffect(() => {
         nitis()
-    }, [])*/ 
+    })
 
     function myLinks() {
         var x = document.getElementById("myLinks")
@@ -105,7 +106,7 @@ function Navber(props) {
 
     function admin() {
         return (
-            <nav style = {{zIndex : 999999}}>
+            <nav style={{ zIndex: 999999 }}>
                 <div className={styles.bg_navber}>
                     <div className={styles.content}>
                         <h1 className={styles.nav_title}>VPilates</h1>
@@ -119,7 +120,7 @@ function Navber(props) {
                         </div>
                         <div className={styles.icon}>
                             <a className={styles.iconmenu} onClick={myLinks}><FiMenu /></a>
-		{/* {(noti.length > 0) ? <div className={styles.notication}>{noti.length}</div> : null}*/}
+                            {(noti.length > 0) ? <div className={styles.notication}>{noti.length}</div> : null}
                         </div>
                     </div>
                 </div>

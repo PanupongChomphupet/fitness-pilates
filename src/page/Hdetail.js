@@ -24,7 +24,7 @@ function Hdetail() {
         const token = localStorage.getItem("token");
         axios({
             method: "post",
-            url: `http://104.155.150.122/hdetail/${Id}`,
+            url: `http://localhost:5000/hdetail/${Id}`,
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
         }).then(res => {

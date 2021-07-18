@@ -22,7 +22,7 @@ function Newpassword() {
                 if (newp === pagain) {
                     axios({
                         method: "post",
-                        url: "http://104.155.150.122/newpassword",
+                        url: "http://localhost:5000/newpassword",
                         headers: { "Content-Type": "application/json" },
                         data: JSON.stringify({
                             telre,

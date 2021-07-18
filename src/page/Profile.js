@@ -13,7 +13,7 @@ function Profile() {
 
     useEffect(() => {
         axios({
-            url: "http://104.155.150.122/dataprofile",
+            url: "http://localhost:5000/dataprofile",
             method: "POST",
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ token })
