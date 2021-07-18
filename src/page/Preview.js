@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player'
 
+
 function Preview() {
     const name = useParams().name;
     const level = useParams().level;
@@ -28,13 +29,13 @@ function Preview() {
             {preview ? preview.map((item, index) =>
                 <div className={styles.video} key={index}>
                     <ReactPlayer
-                            url={[{ src: `https://storage.googleapis.com/video-course/${preview[index]}`, type: 'video/mp4' }]}
-                            controls  // gives the front end video controls 
-                            width='100%'
-                            height='100%'
-                            config={{ file: { attributes: { controlsList: 'nodownload' } } }}
-                            onContextMenu={e => e.preventDefault()}
-                        /> 
+                        url={[{ src: `https://storage.googleapis.com/video-course/${preview[index]}`, type: 'video/mp4' }]}
+                        controls  // gives the front end video controls 
+                        width='100%'
+                        height='100%'
+                        config={{ file: { attributes: { controlsList: 'nodownload' } } }}
+                        onContextMenu={e => e.preventDefault()}
+                    />
                 </div>
             ) : null
             }
