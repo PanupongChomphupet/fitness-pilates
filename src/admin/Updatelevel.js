@@ -5,7 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 import { Progress } from 'react-sweet-progress';
 import "../../node_modules/react-sweet-progress/lib/style.css";
-import QierPlayer from 'qier-player';
+import ReactPlayer from 'react-player'
 
 
 function Updatelevel() {
@@ -150,13 +150,13 @@ function Updatelevel() {
                     {listvideo.map((item, index) =>
                         <div key={index}>
                             <div className={styles.video}>
-                                <QierPlayer
-                                    width={"100%"}
-                                    height={250}
-                                    language="en"
-                                    showVideoQuality={false}
-                                    themeColor="#abc123"
-                                    srcOrigin = {`https://storage.googleapis.com/video-course/${item}`}
+                                <ReactPlayer
+                                    url={[{ src: `https://storage.googleapis.com/video-course/${item}`, type: 'video/mp4' }]}
+                                    controls  // gives the front end video controls 
+                                    width='100%'
+                                    height='100%'
+                                    config={{ file: { attributes: { controlsList: 'nodownload' } } }}
+                                    onContextMenu={e => e.preventDefault()}
                                 />
                                 <button onClick={e => delectvideo(item)} className={styles.btn}>ลบ</button>
                             </div>

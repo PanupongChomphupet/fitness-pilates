@@ -2,7 +2,7 @@ import styles from '../styles/Preview.module.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import QierPlayer from 'qier-player';
+import ReactPlayer from 'react-player'
 
 function Preview() {
     const name = useParams().name;
@@ -27,15 +27,14 @@ function Preview() {
             <h2 className={styles.title}>ตัวอย่างวิดิโอ</h2>
             {preview ? preview.map((item, index) =>
                 <div className={styles.video} key={index}>
-                    <QierPlayer
-                        width={"100%"}
-                        height={230}
-                        language="en"
-                        showVideoQuality={false}
-                        themeColor="#abc123"
-                        srcOrigin={`https://storage.googleapis.com/video-course/${preview[index]}`}
-
-                    />
+                    <ReactPlayer
+                            url={[{ src: `https://storage.googleapis.com/video-course/${preview[index]}`, type: 'video/mp4' }]}
+                            controls  // gives the front end video controls 
+                            width='100%'
+                            height='100%'
+                            config={{ file: { attributes: { controlsList: 'nodownload' } } }}
+                            onContextMenu={e => e.preventDefault()}
+                        /> 
                 </div>
             ) : null
             }
