@@ -9,7 +9,7 @@ import Pay from './page/Payment';
 import Dasborad from './page/Dasborad';
 import Selectlevel from './page/Selectlevel';
 import Videoplay from './page/Videoplay';
-import Show from './page/Show'
+import Shop from './page/Shop'
 import Historylist from './page/Historylist'
 import ForgotPassword from './page/ForgotPassword'
 import Newpassword from './page/Newpassword'
@@ -76,10 +76,10 @@ function App() {
     <div>
       <Navber rights={right} />
       <Switch>
-        <Route path="/home">
+        <Route path="/home" exact>
           <Home />
         </Route>
-        <Route path="/login" exact>
+        <Route path="/login">
           <Login />
         </Route>
         <Route path="/register">
@@ -109,8 +109,8 @@ function App() {
         <Route path="/video/:id/:level">
           <Videoplay />
         </Route>
-        <Route path="/show">
-          <Show />
+        <Route path="/shop">
+          <Shop />
         </Route>
         <Route path="/Preview/:name/:level">
           <Preview />
