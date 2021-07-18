@@ -60,7 +60,8 @@
     font-size: 14px;
     border:none;
     background: #84b85a;
-    color: #FDFB9C;
+    color: black;
+    font-weight: 900;
     border-radius: 10px;
     box-shadow: 0px 0px 6px rgb(83, 83, 83);
 }

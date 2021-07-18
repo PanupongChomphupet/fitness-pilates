@@ -67,7 +67,8 @@ function date() {
     }
 }
 
-mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) => {
+/* mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) => { */
+mongo.connect("mongodb://localhost:27017", { useUnifiedTopology: true }, (err, db) => {
     if (err) throw err;
     var dbcon = db.db("userdata");
     app.post("/register", async (req, res) => {
@@ -150,7 +151,6 @@ mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) =
                 })
             } else {
                 res.json({ token: "" });
-
             }
         })
     })
@@ -219,18 +219,18 @@ mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) =
             if (err) throw err;
             dbcon.collection("user").findOne({ _id: ObjectId(decoded._id) }, { projection: { Bill: 0, password: 0 } }, (err, result) => {
                 if (err) throw err;
-		    try{
-                const { name, age, weight, height, gender, rights } = result
-		    } catch(e){name = ''; age = ''; weight = ''; height = ''; gender = ''; rights = ''}
-            	   try{
-                res.json({
-                    status: "success",
-                    name: result.name, age: result.age, weight: result.weight, height: result.height, gender: result.gender, rights: result.rights
-                })
-                    } catch(e){console.log(e); res.json({status: "success", name: "", age: "", weight: "", height: "", gender: "", rights: ""})}
+                try {
+                    const { name, age, weight, height, gender, rights } = result
+                } catch (e) { name = ''; age = ''; weight = ''; height = ''; gender = ''; rights = '' }
+                try {
+                    res.json({
+                        status: "success",
+                        name: result.name, age: result.age, weight: result.weight, height: result.height, gender: result.gender, rights: result.rights
+                    })
+                } catch (e) { console.log(e); res.json({ status: "success", name: "", age: "", weight: "", height: "", gender: "", rights: "" }) }
 
             })
-    	})
+        })
     })
 
     app.get("/course", (req, res) => {
@@ -492,12 +492,12 @@ mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) =
                     const fileName = UniqueStringGenerator.UniqueStringId() + "." +
                         videos[i].name.split(".").slice(-1)[0];
                     videos[i].mv(__dirname + "/videos/" + fileName, err => {
-                        if (err){
-				reject(error);
-				throw err;
-			}
+                        if (err) {
+                            reject(error);
+                            throw err;
+                        }
                         resolve(fileName);
-			    console.log("Uploaded videos");
+                        console.log("Uploaded videos");
                         filesBucket.upload(__dirname + "/videos/" + fileName, (err, file) => {
                             if (err) throw err;
                             fs.unlinkSync(__dirname + "/videos/" + fileName);
@@ -512,9 +512,9 @@ mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) =
                         videos.name.split(".").slice(-1)[0];
                     videos.mv(__dirname + "/videos/" + fileName, err => {
                         if (err) {
-				reject(err);
-				throw err;
-			}
+                            reject(err);
+                            throw err;
+                        }
                         resolve(fileName);
                         filesBucket.upload(__dirname + "/videos/" + fileName, (err, file) => {
                             if (err) throw err;
@@ -574,13 +574,13 @@ mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) =
                                 }
                             }
                         }, (err, result) => {
-				if(err) throw err;
+                            if (err) throw err;
                             if (result) {
                                 res.send("สำเร็จ")
                             }
                         })
                     } else {
-			    if(err) throw err;
+                        if (err) throw err;
                         res.send("ไม่สำเร็จ")
                     }
                 })
@@ -856,13 +856,13 @@ mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) =
             if (err) throw err
             dbcon.collection('user').findOne({ _id: ObjectId(decoded._id) }, (err, result) => {
                 if (err) throw err
-		try {
-               	 	res.json({ couse: result.Bill })
-	    }catch(e) {
-	    	console.log(e);
-		    res.json ({couse : null})
-	    }
-	    })
+                try {
+                    res.json({ couse: result.Bill })
+                } catch (e) {
+                    console.log(e);
+                    res.json({ couse: null })
+                }
+            })
         })
     })
 
@@ -870,13 +870,13 @@ mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) =
         const { token } = req.body
         jwt.verify(token, 'dc7fea65a4w2s3w4a5w5w5f6g4r5y2f0', function (err, decoded) {
             dbcon.collection('user').findOne({ _id: ObjectId(decoded._id) }, (err, result) => {
-		try{
-                    res.json({ Mycouse: result.Mycouse})
-                
-                }catch (e) {
-		    console.log (e);
-		    res.json({Mycouse: ""})
-		}
+                try {
+                    res.json({ Mycouse: result.Mycouse })
+
+                } catch (e) {
+                    console.log(e);
+                    res.json({ Mycouse: "" })
+                }
             })
         })
     })
@@ -966,7 +966,7 @@ mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) =
     app.post('/video', (req, res) => {
         const { id, level } = req.body
         dbcon.collection('course').findOne({ _id: ObjectId(id) }, { projection: { level: { $elemMatch: { level: level } } } }, (err, result) => {
-            res.json({level: result.level[0]})
+            res.json({ level: result.level[0] })
         })
     })
 
@@ -1029,7 +1029,7 @@ mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) =
     })
 
 
-    app.get("*", (req, res)=>{
+    app.get("*", (req, res) => {
         res.sendFile(path.join(__dirname + "/../build/index.html"));
     })
 })
@@ -1039,7 +1039,7 @@ app.listen(5000, () => {
 })
 */
 const httpServer = http.createServer(app);
-const  httpsServer = https.createServer(app);
+const httpsServer = https.createServer(app);
 
-httpServer.listen(5000, ()=>console.log("> Http on port 5000"));
-httpsServer.listen(5001, ()=>console.log("> Https on port 5001"));
+httpServer.listen(5000, () => console.log("> Http on port 5000"));
+httpsServer.listen(5001, () => console.log("> Https on port 5001"));
