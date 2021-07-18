@@ -10,6 +10,7 @@ import Dasborad from './page/Dasborad';
 import Selectlevel from './page/Selectlevel';
 import Videoplay from './page/Videoplay';
 import Shop from './page/Shop'
+
 import Historylist from './page/Historylist'
 import ForgotPassword from './page/ForgotPassword'
 import Newpassword from './page/Newpassword'
@@ -76,10 +77,10 @@ function App() {
     <div>
       <Navber rights={right} />
       <Switch>
-        <Route path="/home" exact>
+        <Route path="/home">
           <Home />
         </Route>
-        <Route path="/login">
+        <Route path="/login" exact>
           <Login />
         </Route>
         <Route path="/register">

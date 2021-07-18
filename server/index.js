@@ -68,6 +68,7 @@ function date() {
 }
 
 mongo.connect("mongodb://mongo:27017", { useUnifiedTopology: true }, (err, db) => {
+/* mongo.connect("mongodb://localhost:27017", { useUnifiedTopology: true }, (err, db) => { */
     if (err) throw err;
     var dbcon = db.db("userdata");
     app.post("/register", async (req, res) => {
