@@ -10,7 +10,6 @@ import Dasborad from './page/Dasborad';
 import Selectlevel from './page/Selectlevel';
 import Videoplay from './page/Videoplay';
 import Shop from './page/Shop'
-
 import Historylist from './page/Historylist'
 import ForgotPassword from './page/ForgotPassword'
 import Newpassword from './page/Newpassword'
